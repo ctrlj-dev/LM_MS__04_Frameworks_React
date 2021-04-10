@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, generatePath } from "react-router-dom";
-import { useDebounce } from "use-debounce";
+//import { useDebounce } from "use-debounce";
 
 interface MemberEntity {
   id: string;
@@ -33,9 +33,8 @@ export const MyfilterContextProvider: React.FC = (props) => {
 export const ListPage: React.FC = () => {
   const filterContext = React.useContext(MyfilterContext);
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
-  const { newFilter } = React.useContext(MyfilterContext);
-  const { newSetFilter } = React.useContext(MyfilterContext);
-  const [filter, setFilter] = React.useState(newFilter)
+  const { newFilter , newSetFilter} = React.useContext(MyfilterContext); 
+  const [filter, setFilter] = React.useState(newFilter);
   //const [debouncedFilter] = useDebounce(filterContext.filter, 2000);
 
   const handleFilter = (e) => {
@@ -43,6 +42,7 @@ export const ListPage: React.FC = () => {
     newSetFilter(filter);
   };
 
+  /*
   const searchOrganization = () => {
     fetch(`https://api.github.com/orgs/${filterContext.newFilter}/members`)
       .then((response) => response.json())
@@ -52,12 +52,13 @@ export const ListPage: React.FC = () => {
         window.location.href = "/list";
       });
   };
+   */
 
   React.useEffect(() => {
     fetch(`https://api.github.com/orgs/${filterContext.newFilter}/members`)
       .then((response) => response.json())
       .then((json) => setMembers(json));
-  }, [filterContext]);
+  },[filterContext]);
 
   return (
     <>
