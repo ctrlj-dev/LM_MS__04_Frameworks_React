@@ -12,6 +12,7 @@ export const ShowMemberList: React.FC = (props) => {
       .then((response) => response.json())
       .then((json) => setMembers(json));
   }, [filterContext]);
+  
   return (
     <>
       <table className="table">
