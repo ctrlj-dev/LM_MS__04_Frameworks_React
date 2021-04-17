@@ -1,13 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-
-
-interface MemberDetailEntity{
-  id : string;
-  name : string;
-  company : string;
-  bio : string; 
-}
+import { MemberDetailEntity } from "../interfaces/memberDetailEntity";
 
 const createMemberDetail = () =>({
   id: '',  
@@ -25,8 +18,6 @@ export const DetailPage: React.FC = () => {
   .then((response) => response.json())
   .then((json) => setMember(json));
   }, []);
-
-
 
   return (
     <>
