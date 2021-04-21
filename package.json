@@ -31,7 +31,7 @@
     "react-router-dom": "^5.2.0",
     "rimraf": "^3.0.2",
     "sass": "^1.32.11",
-    "sass-loader": "^11.0.1",
+    "sass-loader": "^10.0.0",
     "style-loader": "^2.0.0",
     "typescript": "^3.8.3",
     "url-loader": "^4.1.0",

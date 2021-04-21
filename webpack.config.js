@@ -33,15 +33,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
-            options: {
-              modules: {
-                exportLocalsConvention: "camelCase",
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
-                localIdentContext: path.resolve(__dirname, 'src'),
-                localIdentHashPrefix: 'my-custom-hash',
-              },
-            },
+            loader: "css-loader",      
           },
           {
             loader: "sass-loader",
@@ -53,7 +45,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [MiniCssExtractPlugin.loader],
       },
       {
         test: /\.(png|jpg)$/,
