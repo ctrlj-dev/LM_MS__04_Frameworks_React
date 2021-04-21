@@ -6,12 +6,12 @@ const basePath = __dirname;
 module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
-    extensions: [".js", ".ts", ".tsx"],    
+    extensions: [".js", ".ts", ".tsx"],
   },
   devtool: "eval-source-map",
   entry: {
     app: ["./index.tsx"],
-    appStyles: ["./styles/main.scss"],
+    appStyles: ["./components/login/styles.scss"],
   },
   stats: "errors-only",
   output: {
@@ -32,20 +32,18 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",      
-          },
+          "css-loader",
           {
             loader: "sass-loader",
             options: {
-              implementation: require("sass"),
-            },
+              implementation: require("sass")
+            }
           },
-        ],
+        ]
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(png|jpg)$/,
