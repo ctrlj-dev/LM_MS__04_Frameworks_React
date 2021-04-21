@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 export const LoginForm: React.FC = () => {
+
     const history = useHistory();
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -16,7 +17,7 @@ export const LoginForm: React.FC = () => {
     };
   
     return (
-      <form onSubmit={handleNavigation}>
+      <form  className="login-form" onSubmit={handleNavigation}>
         <h2>Hello from login page</h2>
         <div>
           <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { MemberSearch } from "../components/member_search_component";
+import { MemberSearch } from "../components/member-search-component";
 import { ShowMemberList } from "../layout/list-layout"; 
 //import { useDebounce } from "use-debounce";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { MemberDetailEntity } from "../interfaces/memberDetailEntity";
+import { MemberDetailEntity } from "../interfaces/member-detail-entity";
 
 const createMemberDetail = () => ({
   id: "",

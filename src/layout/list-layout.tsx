@@ -1,7 +1,7 @@
 import React from "react";
-import { MemberEntity } from "../interfaces/memberEntity";
+import { MemberEntity } from "../interfaces/member-entity";
 import { Link, generatePath } from "react-router-dom";
-import { MyfilterContext } from "../components/member_search_component";
+import { MyfilterContext } from "../components/member-search-component";
 
 export const ShowMemberList: React.FC = (props) => {
   const filterContext = React.useContext(MyfilterContext);

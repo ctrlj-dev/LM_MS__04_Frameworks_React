@@ -1,5 +1,5 @@
 import React from "react";
-import { MemberEntity, filterContext } from "../interfaces/memberEntity";
+import { MemberEntity, filterContext } from "../interfaces/member-entity";
 
 export const MyfilterContext = React.createContext<filterContext>({
   newFilter: "",
