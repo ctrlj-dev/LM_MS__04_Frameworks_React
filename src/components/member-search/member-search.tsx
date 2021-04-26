@@ -1,5 +1,6 @@
 import React from "react";
-import { MemberEntity, filterContext } from "../interfaces/member-entity";
+import { MemberEntity, filterContext } from "../../interfaces/member-entity";
+import classes from "./member-search.scss";
 
 export const MyfilterContext = React.createContext<filterContext>({
   newFilter: "",
@@ -9,7 +10,7 @@ export const MyfilterContext = React.createContext<filterContext>({
 });
 
 export const MyfilterContextProvider: React.FC = (props) => {
-  const [newFilter, newSetFilter] = React.useState("lemoncode");
+  const [newFilter, newSetFilter] = React.useState("Lemoncode");
   return (
     <MyfilterContext.Provider value={{ newFilter, newSetFilter }}>
       {props.children}
@@ -37,14 +38,25 @@ export const MemberSearch: React.FC = () => {
 
   return (
     <>
-      <form onSubmit={handleFilter}>
-        <input
-          type="text"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        />
-        <button>Buscar</button>
-      </form>
+      <div className="container-fluid">
+        <p className={classes.pageIntroText}>
+          <ul>
+            <li>You can Search. </li>
+            <li>You should Explore. </li>
+            <li>You will Learn. </li>
+            <li>You start Grow. </li>
+          </ul>
+      
+        </p>
+        <form onSubmit={handleFilter} className={classes.memberSearchForm}>
+          <input
+            type="text"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          />
+          <button>Search</button>
+        </form>
+      </div>
     </>
   );
 };

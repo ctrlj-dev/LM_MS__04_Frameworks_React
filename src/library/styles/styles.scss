@@ -1,0 +1,76 @@
+@import url(./main.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  border-bottom: 1px solid white;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: none;
+  outline: 0;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// COLORS
+
+$noirBlue: #12192C;
+$pastelRed: #F3574A;
+
+// END COLORS
+
+html, body {
+    min-height: 100vh;
+    position: relative;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: black;
+    color: white;
+    font-size: 16px;
+}
+
+
+img {
+    max-width: 100%;
+}
+
+header {
+    padding: 15px 0;
+}
+
+header img {
+    max-width: 150px;
+}
+
+footer {
+    position: fixed;   
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
+    background: black;
+    padding: 15px 0 5px 0;
+
+    a {
+        font-weight: bold;
+        color: white;
+        &:active, &:visited {
+            color: white;
+        }
+        &:hover {
+            color: $pastelRed;
+        }
+    }
+}
+

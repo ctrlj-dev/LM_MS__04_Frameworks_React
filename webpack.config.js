@@ -6,12 +6,13 @@ const basePath = __dirname;
 module.exports = {
   context: path.join(basePath, "src"),
   resolve: {
-    extensions: [".js", ".ts", ".tsx"],
+    extensions: [".js", ".ts", ".tsx", ".scss", ".css"],
   },
   devtool: "eval-source-map",
   entry: {
     app: ["./index.tsx"],
-    appStyles: ["./components/login/styles.scss"],
+    vendorStyles: ['../node_modules/bootstrap/dist/css/bootstrap.css'],
+    appStyles: ["./library/styles/styles.scss"],
   },
   stats: "errors-only",
   output: {
@@ -29,10 +30,21 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
+        //exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          //"css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                exportLocalsConvention: "camelCase",
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+                localIdentHashPrefix: 'my-custom-hash', // Optional
+              },
+            },
+          },
           {
             loader: "sass-loader",
             options: {
