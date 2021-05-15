@@ -66,13 +66,14 @@ $pastelRed: #F3574A;
             .rightArrow {
                 height: 20px;
                 display: inline-block;
-                margin-right: 10px;
+                margin: 0 5px 0 3px;
                 width: auto;
                 position: relative;
                 top: -2px;
 
                 @media screen and (min-width: 768px) {
                     top: 0;
+                    margin: 0 10px 0 8px;
                 }
 
                 @media screen and (min-width: 1024px) {
