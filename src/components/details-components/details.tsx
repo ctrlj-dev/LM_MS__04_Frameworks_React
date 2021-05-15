@@ -23,7 +23,6 @@ export const ShowMemberDetails: React.FC = () => {
       .then((json) => setMember(json));
   }, []);
 
-  console.log(member);
 
   return (
     <>
@@ -43,7 +42,9 @@ export const ShowMemberDetails: React.FC = () => {
             <div className="col-12 col-md-7">
               <div className={classes.nameBox}>
                 <sub className={classes.memberID}>
-                  🡢 <span>{id}</span>
+                  <a target="_blank" href={member.html_url}>
+                    🡢 <span>{id}</span>
+                  </a>
                 </sub>
                 <h1 className={classes.memberName}>{member.name}</h1>
               </div>
@@ -57,7 +58,7 @@ export const ShowMemberDetails: React.FC = () => {
             </div>
           </div>
           <Link className={classes.backLink} to="/list/">
-          🡠 Back to list page
+            🡠 Back to list page
           </Link>
         </div>
       </div>

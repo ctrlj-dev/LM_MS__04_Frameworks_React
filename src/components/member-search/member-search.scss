@@ -1,14 +1,19 @@
 // Page intro
-
+/*
 .pageIntroText {
     font-size: 36px;
-    margin: 80px 0 60px 0;
+    margin: 80px 0 30px 0;
 
     @media screen and (min-width: 768px) {
         font-size: 40px;
     }
 
     @media screen and (min-width: 1024px) {
+        font-size: 60px;
+        max-width: 90%;
+    }
+
+    @media screen and (min-width: 1920px) {
         font-size: 60px;
         max-width: 60%;
     }
@@ -25,7 +30,7 @@
         }
     }
 }
-
+*/
 .memberSearchForm {
     margin: 30px 0;
 
@@ -38,85 +43,49 @@
         color: white;
         font-weight: 400;
         text-transform: capitalize;
-        outline: none;
-        width: 100%;
+        outline: none;        
         margin-bottom: 15px;
 
         @media screen and (min-width: 768px) {
+            font-size: 40px;
             width: auto;
             margin-bottom: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: 60px;
+
+        }
+
+        @media screen and (min-width: 1920px) {
+            font-size: 60px;
+
         }
     }
 
     button {
         background: transparent;
-        border: 1px solid white;
+        border: none;
         padding: 5px 30px;
         font-weight: bold;
         color: white;
-        padding: 5px 30px;
-    }
-}
-
-.memberContainer {
-    background-color: white;
-    min-height: 100vh;
-
-    .memberRow {
-        padding: 10px 0;
-        border-bottom: 1px solid black;
-        position: relative;
-    }
-
-    .memberName {
-        font-size: 40px;
-        color: black;
-        text-transform: uppercase;
-        display: inline-block;
-        cursor: pointer;
-
-        &:hover {
-            color: transparent;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-        }
-
-        &:hover~.memberPicture {
-            opacity: 1;
+      
+        @media screen and (min-width: 768px) {
+            font-size: 40px;
+            width: auto;
+            margin-bottom: 0;
         }
 
         @media screen and (min-width: 1024px) {
             font-size: 60px;
-        }
-    }
 
-    .memberID {
-        display: inline-block;
-        font-size: 20px;
-        color: black;
-        margin: 0 0 0 10px;
-        bottom: 0;
-    }
+        }
 
-    .memberPicture {
-        position: absolute;
-        top: 0;
-        right: 0;
-        opacity: 0;
-        width: 300px;
-        z-index: 100;
-        display: none;
-        img {
-            width: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-        }
-        @media screen and (min-width: 768px) {
-            display: block;            
-        }
-        @media screen and (min-width: 1024px) {
-            right: 10%; 
-            top: -100%;           
+        @media screen and (min-width: 1920px) {
+            font-size: 60px;
+
         }
     }
 }
+
+

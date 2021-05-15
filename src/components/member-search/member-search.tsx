@@ -19,10 +19,10 @@ export const MyfilterContextProvider: React.FC = (props) => {
 };
 
 export const MemberSearch: React.FC = () => {
-  const filterContext = React.useContext(MyfilterContext);
-  const [members, setMembers] = React.useState<MemberEntity[]>([]);
   const { newFilter, newSetFilter } = React.useContext(MyfilterContext);
   const [filter, setFilter] = React.useState(newFilter);
+  //const filterContext = React.useContext(MyfilterContext);
+  //const [members, setMembers] = React.useState<MemberEntity[]>([]);
   //const [debouncedFilter] = useDebounce(filterContext.filter, 2000);
 
   const handleFilter = (e) => {
@@ -30,24 +30,29 @@ export const MemberSearch: React.FC = () => {
     newSetFilter(filter);
   };
 
+/* 
   React.useEffect(() => {
     fetch(`https://api.github.com/orgs/${filterContext.newFilter}/members`)
       .then((response) => response.json())
-      .then((json) => setMembers(json));
+      .then((json) => setMembers(json))
+     // .catch((error) => {window.location.href = "/list/"});
   }, [filterContext]);
+*/
 
   return (
     <>
       <div className="container-fluid">
-        <p className={classes.pageIntroText}>
-          <ul>
-            <li>You can Search. </li>
-            <li>You should Explore. </li>
-            <li>You will Learn. </li>
-            <li>You start Grow. </li>
-          </ul>
-      
-        </p>
+        {
+          /* <div className={classes.pageIntroText}>
+            <ul>
+              <li>You can Search. </li>
+              <li>You should Explore. </li>
+              <li>You will Learn. </li>
+              <li>You start Grow. </li>
+            </ul>
+          </div>
+          */
+        }
         <form onSubmit={handleFilter} className={classes.memberSearchForm}>
           <input
             type="text"

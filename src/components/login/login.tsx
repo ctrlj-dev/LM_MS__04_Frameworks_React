@@ -36,9 +36,9 @@ export const LoginForm: React.FC = () => {
         history.push("/list");
       } else {
         // Si el usuario no existe, lanza un mensaje...y muestra un listado de usuarios válidos la consola
-        alert("User / password not valid, psst...check console...");
-        console.log("User List for login");
-        users.forEach((element) => console.log(element));
+        alert("User / password not valid, psst...admin/test...");
+        //console.log("User List for login");
+        //users.forEach((element) => console.log(element));
       }
     };
 
@@ -72,7 +72,7 @@ export const LoginForm: React.FC = () => {
 
   return (
     <>
-      <div className={`container`}>
+      <div className={`container ${classes.loginContainer}`}>
         <div className={`row`}>
           <div className={`col-12`}>
             <div className={classes.homeLogo}>

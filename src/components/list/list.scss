@@ -1,0 +1,87 @@
+
+.memberContainer {
+    background-color: white;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+
+    @media screen and (min-width: 768px) {
+        overflow-x: initial;
+    }
+
+    .memberRow {
+        padding: 10px 0;
+        border-bottom: 1px solid black;
+        position: relative;
+    }
+
+    .memberName {
+        font-size: 40px;
+        color: black;
+        text-transform: uppercase;
+        display: inline-block;
+        cursor: pointer;
+
+        &:hover {
+            color: transparent;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+
+        &:hover~.memberPicture {
+            opacity: 1;
+        }
+
+
+        @media screen and (min-width: 1024px) {
+            font-size: 60px;
+        }
+    }
+
+    .memberID {
+        font-size: 20px;
+        color: black;
+        margin: 0 0 0 10px;
+        bottom: 0;
+        display: none;
+
+        @media screen and (min-width: 768px) {
+            display: inline-block;
+        }
+    }
+
+    .memberPicture {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        width: 300px;
+        z-index: 999;
+        display: none;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        @media screen and (min-width: 768px) {
+            display: block;
+        }
+
+        @media screen and (min-width: 1024px) {
+            right: 10%;
+            top: -100%;
+        }
+    }
+
+    .navigationContainer {
+        margin: 30px 0;
+
+        button:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+
+
+}
