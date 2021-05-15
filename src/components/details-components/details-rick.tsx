@@ -32,8 +32,8 @@ export const ShowCharactersDetails: React.FC = () => {
       <div className="container-fluid">
         <div className={classes.detailsIntro}>
           <p>
-            Yeah, sure, I mean, if you spend all day  <strong>shuffling words </strong> 
-            around, you can make anything sound bad, <strong>Morty</strong> .
+            "Yeah, sure, I mean, if you spend all day  <strong>shuffling words </strong> 
+            around, you can make anything sound bad, <strong>Morty</strong>" .
           </p>
         </div>
 
