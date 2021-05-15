@@ -1,71 +1,74 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { MemberDetailEntity } from "../../interfaces/member-detail-entity";
+import { CharactersDetailsEntity } from "../../interfaces/characters-details-rick";
 import classes from "./details.scss";
 
-const createMemberDetail = () => ({
+const createCharactersDetails = () => ({
   id: "",
   name: "",
-  company: "",
-  bio: "",
+  species: "",
+  gender: "",
+  image: "",
 });
 
-export const ShowMemberDetails: React.FC = () => {
-  const [member, setMember] = React.useState<MemberDetailEntity>(
-    createMemberDetail()
+export const ShowCharactersDetails: React.FC = () => {
+  const [character, setCharacter] = React.useState<CharactersDetailsEntity>(
+    createCharactersDetails()
   );
 
   const { id } = useParams();
 
   React.useEffect(() => {
-    fetch(`https://api.github.com/users/${id}`)
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
-      .then((json) => setMember(json));
+      .then((json) => setCharacter(json));
   }, []);
+
+  console.log(character);
+  console.log(character.location);
 
   return (
     <>
       <div className="container-fluid">
         <div className={classes.detailsIntro}>
           <p>
-            A group of <strong>talented people</strong> who work creating
-            software and sharing their knowledge with the community.
+            Yeah, sure, I mean, if you spend all day  <strong>shuffling words </strong> 
+            around, you can make anything sound bad, <strong>Morty</strong> .
           </p>
         </div>
 
         <div className={classes.userDetailsCard}>
           <div className={`row ${classes.userDetailsCardRow}`}>
             <div className="col-12 col-md-5">
-              <img src={member.avatar_url} />
+              <img src={character.image} />
             </div>
             <div className="col-12 col-md-7">
               <div className={classes.nameBox}>
                 <sub className={classes.memberID}>
-                  <a target="_blank" href={member.html_url}>
-                    <img
-                      className={classes.rightArrow}
-                      src="/src/library/icons/right-arrow-w.svg"
-                    />
-                    <span>{id}</span>
-                  </a>
+                  <span>Gender </span>
+                  <img
+                    className={classes.rightArrow}
+                    src="/src/library/icons/right-arrow-w.svg"
+                  />
+                  <span>{character.gender}</span>
                 </sub>
-                <h1 className={classes.memberName}>{member.name}</h1>
+                <h1 className={classes.memberName}>{character.name}</h1>
               </div>
               <h2 className={classes.memberCompany}>
-                <span>Work in</span>
+                <span>Specie</span>
                 <img
                   className={classes.rightArrow}
                   src="/src/library/icons/right-arrow-w.svg"
                 />
-                {member.company}
+                {character.species}
               </h2>
               <div className={classes.memberBio}>
-                <span>BIOGRAPHY: </span>
-                <p>{member.bio}</p>
+                <span>STATUS: </span>
+                <p>{character.status}</p>
               </div>{" "}
             </div>
           </div>
-          <Link className={classes.backLink} to="/list/">
+          <Link className={classes.backLink} to="/rick-morty-list/">
             <img
               className={classes.rightArrow}
               src="/src/library/icons/left-arrow-w.svg"

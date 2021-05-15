@@ -5,71 +5,30 @@ import { MyfilterContext } from "../member-search/member-search";
 import classes from "./list.scss";
 
 export const ShowMemberList: React.FC = (props) => {
-  //const filterContext = React.useContext(MyfilterContext);
-  //const [members, setMembers] = React.useState<MemberEntity[]>([]);
-  //const [actualPage, setNewPage] = React.useState(1);
-  /* 
+  const filterContext = React.useContext(MyfilterContext);
+  const [members, setMembers] = React.useState<MemberEntity[]>([]);
+  const [actualPage, setNewPage] = React.useState(1);
+  const postPerPage = "10";
+
   React.useEffect(() => {
     fetch(
-      `https://api.github.com/orgs/${filterContext.newFilter}/members?page=${actualPage}&per_page=2`
+      `https://api.github.com/orgs/${filterContext.newFilter}/members?page=${actualPage}&per_page=${postPerPage}`
     )
       .then((response) => response.json())
-      .then((json) => setMembers(json))
-      //.catch((error) => {window.location.href = "/list/"});
+      .then((json) => setMembers(json))     
+      .catch((error) => {window.location.href = "/list/"});
   }, [filterContext]);
+
+  const handlePrevPage = () => {
+    setNewPage(actualPage - 1);    
+  };
 
   const handleNextPage = () => {
     setNewPage(actualPage + 1);
+    if (members.length < 10) {
+      setNewPage(actualPage);
+    }  
   };
-
-  const handlePrevPage = () => {
-    setNewPage(actualPage - 1);
-  };
-*/
-  const members = [
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      id: "1",
-      login: "Test",
-      avatar_url:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    },
-  ];
 
   return (
     <>
@@ -92,8 +51,12 @@ export const ShowMemberList: React.FC = (props) => {
           ))}
           {}
           <div className={classes.navigationContainer}>
-            <a href="#" /*onClick={handlePrevPage}*/>Previous Page</a>
-            <a href="#" /*onClick={handleNextPage}*/>Next page</a>
+            <a id="prevPageLink" href="#" onClick={handlePrevPage}>
+              <img src="/src/library/icons/left-arrow.svg" />
+            </a>
+            <a id="nextPageLink" href="#" onClick={handleNextPage}>
+              <img src="/src/library/icons/right-arrow.svg" />
+            </a>
           </div>
         </div>
       </div>

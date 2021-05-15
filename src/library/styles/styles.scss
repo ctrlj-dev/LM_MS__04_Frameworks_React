@@ -37,7 +37,6 @@ body {
     color: white;
     font-size: 16px;
     overflow-x: hidden;
-
 }
 
 
@@ -46,11 +45,27 @@ img {
 }
 
 header {
-    padding: 15px 0;
+    padding: 15px 0; 
 }
 
 header img {
     max-width: 150px;
+}
+
+.rickListButton {
+    text-align: right;
+    font-size: 24px;
+    align-self: flex-end;
+    color: white;
+    font-weight: bold;
+    a {
+        color: white;
+    }
+    @media screen and (min-width: 768px) {
+        font-size: 32px;
+
+    }
+  
 }
 
 footer {

@@ -1,5 +1,5 @@
 import React from "react";
-import { FilterContext } from "../../interfaces/member-entity";
+import { FilterContext } from "../../interfaces/member-entity-rick";
 import classes from "./member-search.scss";
 
 export const MyfilterContext = React.createContext<FilterContext>({
@@ -9,8 +9,8 @@ export const MyfilterContext = React.createContext<FilterContext>({
   }
 });
 
-export const MyfilterContextProvider: React.FC = (props) => {
-  const [newFilter, newSetFilter] = React.useState("Lemoncode");
+export const MyfilterContextProviderRick: React.FC = (props) => {
+  const [newFilter, newSetFilter] = React.useState("Rick");
   return (
     <MyfilterContext.Provider
       value={{ newFilter, newSetFilter }}
@@ -22,23 +22,16 @@ export const MyfilterContextProvider: React.FC = (props) => {
 
 export const MemberSearch: React.FC = () => {
   const { newFilter, newSetFilter } = React.useContext(MyfilterContext);
-  const [filter, setFilter] = React.useState(newFilter);
-
-  const handleFilter = (e) => {
-    e.preventDefault();
-    newSetFilter(filter);  
-  };
 
   return (
     <>
       <div className="container-fluid">
-        <form onSubmit={handleFilter} className={classes.memberSearchForm}>
+        <form className={classes.memberSearchForm}>
           <input
             type="text"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
+            value={newFilter}
+            onChange={(e) => newSetFilter(e.target.value)}
           />
-          <button>Search</button>
         </form>
       </div>
     </>

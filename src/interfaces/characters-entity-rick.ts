@@ -1,7 +1,9 @@
-export interface MemberEntity {
+export interface CharactersEntityRick {
   id: string;
-  login: string;
-  avatar_url: string;
+  name: string;
+  species: string;
+  gender: string;
+  image: string;
 }
 
 export interface FilterContext {
